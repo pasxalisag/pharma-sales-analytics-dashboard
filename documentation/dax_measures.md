@@ -111,8 +111,8 @@ DISTINCTCOUNT(FactSales[Order_ID])
 
 #### Total Orders Display
 
-**Home table:** `DimCustomer`  
-**Model display folder:** Not assigned  
+**Home table:** `_Measures`  
+**Model display folder:** 02 - Orders  
 **Purpose:** Text-formatted order count for display; not a numeric measure.
 
 ```dax
@@ -135,8 +135,8 @@ DISTINCTCOUNT(FactSales[Customer_ID])
 
 #### Orders per Customer
 
-**Home table:** `DimCustomer`  
-**Model display folder:** Not assigned  
+**Home table:** `_Measures`  
+**Model display folder:** 03 - Customers  
 **Purpose:** Distinct orders per active customer; zero fallback.
 
 ```dax
@@ -165,8 +165,8 @@ DIVIDE(
 
 #### Repeat Customers
 
-**Home table:** `DimCustomer`  
-**Model display folder:** Not assigned  
+**Home table:** `_Measures`  
+**Model display folder:** 03 - Customers  
 **Purpose:** Counts customers with more than one distinct order in the current context.
 
 ```dax
@@ -588,6 +588,6 @@ COUNTROWS(FactSales)
 - Product Price Benchmark is an unweighted average across products, unlike the overall unit-weighted Avg Selling Price.
 - Discount Validation is an aggregate reconciliation; Revenue Mismatch Rows and Absolute Revenue Deviation provide complementary row-level checks.
 - Total Orders Display returns text and should not be used for numeric aggregation.
-- Three measures remain in DimCustomer without display folders; their grouping here is documentation-only.
+- All 35 measures are centralized in `_Measures` and organized into seven model display folders.
 - Format strings and model descriptions were not populated in the export. No formatting metadata has been inferred.
 - Expressions have not been executed against the PBIX as part of this documentation review.
